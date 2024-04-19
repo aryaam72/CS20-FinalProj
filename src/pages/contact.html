@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Karma:wght@600;700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: "Montserrat";
+        }
+
+        .name {
+            display:flex;
+            width:100%;
+            box-sizing:border-box;
+        }
+
+        #message, #email, #fname, #lname, #submitBtn {
+            margin:auto;
+            padding: 10px 10px;
+            font-size:20px;
+            margin-top:20px;
+            margin-bottom:20px;
+        }
+
+        #fname, #lname {
+            width:50%;
+        }
+
+        #message {
+            height:250px;
+        }
+
+        #message, #email {
+            box-sizing: border-box;
+        }
+
+        .otherTxt, #submitBtn, #message, #email {
+            width:100%;
+        }
+
+        .formContainer {
+            width:70%;
+            margin:auto;
+            padding:15px 15px;
+        }  
+        
+        .text {
+            margin:auto;
+            width:70%;
+            text-align:center;
+            font-size:25px;
+            padding:10px 10px;
+        }
+
+        hr {
+            width:70%;
+        }
+
+        .contactContainer {
+            display:flex;
+            width:70%;
+            margin:auto;
+        }
+        
+        .contact, .phone, .socialMedia {
+            display:block;
+            margin:auto;
+            padding-left: 10px;
+        }
+
+        b {
+            font-weight:600;
+        }
+        
+        .phone > :first-child, .socialMedia > :first-child {
+            padding-bottom: 20px;
+        }
+
+        .footer {
+            height:100px;
+            background-color:#FEBB75;
+            text-align:center;
+            margin-top:50px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        p.footer {
+            margin:auto;
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+        } 
+
+    </style>
+
+
+</head>
+<body>
+
+    <div class = "header">
+        <h1 style="text-align:center;">Contact Us</h1>
+        <div class = "text">
+            Please feel free to leave a message for our team. We would love to 
+            hear your thoughts and we appreciate any feedback!
+        </div>
+    </div>
+    
+    <div class ="formContainer">
+    <form name="myForm" method="get" onsubmit="return validate()">
+
+        <div class = 'name'>
+            <input type ='text' id='fname' name='fname' placeholder='first name' required>
+
+            <input type ='text' id='lname' name='lname' placeholder='last name' required>
+        </div>
+
+        <div class="otherTxt">
+            <input type ='text' id='email' name='email' placeholder='email' required><br>
+            <textarea id='message' name='message' placeholder='message...' required></textarea>
+        </div>
+
+        <input type='submit' value='Submit Order' id="submitBtn">
+    </form>
+    </div>
+
+    <hr>
+
+    <div class="contactContainer">
+        <div class="contact">
+            <b>Mailing Address</b><br>
+            MEDF-4202005<br>
+            c/o Tufts University Mail Services<br>
+            389 Boston Avenue<br>
+            Medford, MA 02155
+        </div>
+        <div class="phone">
+            <div class="email"><b>Email Address</b><br>contact@recipesrus.com</div>
+            <div class="number"><b>Phone Number</b><br>+1 (617) 627-5000</div>
+        </div>
+
+        <div class="socialMedia">
+            <div class="socials"><b>Instagram</b><br>@recipesrus.ig</div>
+            <div class="socials"><b>Twitter</b><br>@recipesrus.twitter</div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>© 2024 Recipes R Us by domainhub.domains</p>
+    </div>
+    <!-- need to still include a footer!! -->
+
+    <script>
+        function validate() {
+            var emailCheck = document.myForm.email.value;
+            
+            if(emailCheck.includes("@") && emailCheck.includes(".")) {
+                return true;
+            } else {
+                alert("Please enter a valid email");
+                return false;
+            }
+
+        }
+    </script>
+    
+    
+</body>
+</html>
