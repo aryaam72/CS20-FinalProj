@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Karma:wght@600;700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="Recipes R Us.jpg">
+
+    <style>
+        * {
+            font-family: "Montserrat";
+        }
+
+        .mission, .subscribe {
+            display:flex;
+        }
+
+        .callAction {
+            width:50%;
+            font-size:30px;
+            text-align:center;
+            /* background-color: blanchedalmond; */
+            background-color:#FEBB75;
+            border:2px solid;
+            border-color:white;
+            display:block;
+            border-radius: 20px;
+            padding:20px;
+            margin:auto;
+        }
+
+        .callAction:hover {
+            background-color: #e7e7e7;
+            border:2px solid;
+            border-color:#FEBB75;
+
+            /* background-color: white; */
+        }
+ 
+        /* trending recipes */
+        .trend-recipes {
+            margin-bottom: 5%;
+            margin-top: 5%;           
+        }
+
+        .trend-recipes .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            line-height: 1.8;
+            margin: 5%;   
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .trend-recipes h2 {
+            text-align: center;
+        }
+
+        .r0, .r1, .r2 {
+            /* background: #f2f1ee; */
+            width: 270px;
+            height: 370px;
+            border-radius: 10px;
+            margin-bottom: 5%;
+            padding: 20px 12px;
+            box-sizing: border-box;
+            text-align: center;
+            background-color: #ffffff;
+            border:2px solid;
+            border-color:#FEBB75;
+            margin: auto;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            margin:auto;
+            text-align:center;
+        }
+
+        a {
+            text-decoration: none;
+            color:#000000;
+        }
+
+        .mission-container {
+            display:flex;
+            text-align:center;
+            justify-content: center;
+            margin: auto;
+            padding: 10px;
+        }
+
+        .img {
+            margin-top: 5%;
+        }
+
+        .text {
+            width:60%;
+            font-size: 20px;
+            justify-content: space-between;
+            text-align: justify;
+            text-justify: auto;
+        }
+
+        @media screen and (max-width: 900px) {
+            .callAction {
+                font-size: 20px;
+            }
+        }
+        @media screen and (max-width: 600px) {
+            .callAction {
+                font-size: 20px;
+                width: 80%;
+            }
+        }
+        
+        @media screen and (max-width: 750px) {
+            .mission-container {
+                display:block;
+                width:100%;
+            }
+            .text {
+                width: 80%;
+                margin: auto;
+                display:block;
+
+            }
+        }
+
+
+    </style>
+
+    <script
+        src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+        crossorigin="anonymous">
+    </script>
+
+</head>
+<body>
+    <div class="heading">
+        <h1>Welcome to Recipes R Us!</h1>
+    </div>
+        
+    <div class="mission-container">
+        <div class="img"><img style="width:300px"src="Recipes R Us.jpg"></img></div>
+        <div class="text">
+            <h2>Our Mission</h2>
+            <p> Our mission at Recipes R Us is to provide a comprehensive platform that 
+            consolidates a wide variety of recipes from around the world. We aim to empower
+            users to easily access healthy, diverse, and delicious meal options to support
+            their well-being and culinary exploration. By offering a centralized hub for
+            recipes, we strive to inspire individuals to embrace cooking as a means of 
+            nourishment, creativity, and connection with others. 
+            Moreover, we understand the importance of inclusivity, and thus, our platform 
+            features recipes catering to various dietary preferences and restrictions, ensuring 
+            that everyone can find something delicious to enjoy. By fostering a supportive community of
+                food enthusiasts, we aim to celebrate the joy of cooking while promoting a culture of wellness
+                and diversity in eating habits.</p>
+        </div>  
+    </div>
+
+
+    
+    <div class="trend-recipes">
+        <h2>Trending Recipes</h2>
+        <div class="row">
+            <!-- get three recipies from the database --> 
+            <div class="r0" id="r0">&nbsp;</div>
+            <div class="r1" id="r1">&nbsp;</div>
+            <div class="r2" id="r2">&nbsp;</div>            
+        </div>
+
+
+    </div>
+
+    <a href="database.html" class="callAction">Click Here To Find Your Next Favorite Meal</a>
+
+    <div class="subscribe">
+        <h2>Subscription Model</h2>
+        <div></div>
+        <div></div>
+    </div>
+    
+
+
+<script>
+    process();
+    
+    function process() {
+        trendingArr = ["Sushi%20Rice%20Bowl", "Cajun%20Shrimp%20With%20Bell%20Peppers", "Railway%20Lamb%20Curry", "Herby%20Paneer%20Parcels", "Spicy%20Chicken%20Noodle%20Soup"];
+        
+        var chosen1 = randRecipe(); // number from 0 to 4
+        var chosen2 = (chosen1 + 1) % trendingArr.length;
+        var chosen3 = (chosen2 + 1) % trendingArr.length;
+
+        function randRecipe() {
+            return (Math.floor(Math.random() * trendingArr.length));
+        }
+
+        // alert(trendingArr[chosen1] + ", " + trendingArr[chosen2] + ", " + trendingArr[chosen3]);
+
+        let qString = "https://api.edamam.com/api/recipes/v2?app_id=03dddf06&app_key=688e692a1c0387b16f4520c8a719a2a7&type=public&q=";
+        var rec1 = qString + trendingArr[chosen1];
+        var rec2 = qString + trendingArr[chosen2];
+        var rec3 = qString + trendingArr[chosen3];
+
+        recArr = [rec1, rec2, rec3];
+        
+        res =
+            fetch(recArr[0])
+            .then (res => res.text())
+            .then (data =>
+            {
+                data = JSON.parse(data);
+
+                image = data.hits[0].recipe.images.SMALL.url;
+                name = data.hits[0].recipe.label;
+                dietLabel = data.hits[0].recipe.dietLabels;
+                
+
+                let className = ".r0";
+                $(className).append("<img src = '" + image + "'></img>");
+                $(className).append("<div class=recLabel>" + name + "</div>");
+                $(className).append("<div class=diet></div>");
+    
+                className += " .diet"
+                
+                if(dietLabel.length != 0) {
+                    $(className).append("<b>Diet Labels:</b><br>");
+                }
+                
+                if(dietLabel.length == 1) {
+                    $(className).append(dietLabel[0]);
+                } else {
+                    for(j = 0; j < dietLabel.length - 1; j++) {
+                        $(className).append(dietLabel[j] + " ");
+                    }
+                    $(className).append(dietLabel[dietLabel.length - 1]);                    
+                }
+                
+            }) 
+        
+        res =
+            fetch(recArr[1])
+            .then (res => res.text())
+            .then (data =>
+            {
+                data = JSON.parse(data);
+
+                image = data.hits[0].recipe.images.SMALL.url;
+                name = data.hits[0].recipe.label;
+                dietLabel = data.hits[0].recipe.dietLabels;
+                
+                let className = ".r1";
+                $(className).append("<img src = '" + image + "'></img>");
+                $(className).append("<div class=recLabel>" + name + "</div>");
+                $(className).append("<div class=diet></div>");
+
+                className += " .diet"
+
+                if(dietLabel.length != 0) {
+                    $(className).append("<b>Diet Labels:</b><br>");
+                }
+
+                if(dietLabel.length == 1) {
+                    $(className).append(dietLabel[0]);
+                } else {
+                    for(j = 0; j < dietLabel.length - 1; j++) {
+                        $(className).append(dietLabel[j] + " ");
+                    }
+                    $(className).append(dietLabel[dietLabel.length - 1]);                    
+                }
+                
+            })
+
+        res =
+            fetch(recArr[2])
+            .then (res => res.text())
+            .then (data =>
+            {
+                data = JSON.parse(data);
+
+                image = data.hits[0].recipe.images.SMALL.url;
+                name = data.hits[0].recipe.label;
+                dietLabel = data.hits[0].recipe.dietLabels;
+                
+                let className = ".r2";
+                $(className).append("<img src = '" + image + "'></img>");
+                $(className).append("<div class=recLabel>" + name + "</div>");
+                $(className).append("<div class=diet></div>");
+
+                className += " .diet"
+
+                if(dietLabel.length != 0) {
+                    $(className).append("<b>Diet Labels:</b><br>");
+                }
+
+                if(dietLabel.length == 1) {
+                    $(className).append(dietLabel[0]);
+                } else {
+                    for(j = 0; j < dietLabel.length - 1; j++) {
+                        $(className).append(dietLabel[j] + " ");
+                    }
+                    $(className).append(dietLabel[dietLabel.length - 1]);                    
+                }
+            })
+
+    }
+     
+</script>
+</body>
+</html>
