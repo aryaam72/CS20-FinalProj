@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Recipe Search</title>
+        <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+        <script>
+            if (sessionStorage.getItem() == false) {
+                window.location.href = "subscribe.html";
+            }
+        </script>
+        <style>
+            * {
+                font-family: "Montserrat";
+                color: #36454f;
+            }
+
+            body, .content {
+                margin: 0 auto;
+            }
+
+            body {
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+            }
+
+            h1 {
+                font-family: "Kaushan Script";
+                font-size: 72px;
+                color: #e3735e;
+                display: flex;
+            }
+
+            h1::before, h1::after {
+                content: "";
+                background-color: #e3735e;
+                height: 1px;
+                margin-top: 64px;
+            }
+
+            h1::before {
+                width: 20%;
+                margin-right: 10px;
+            }
+
+            h1::after {
+                margin-left: 20px;
+                flex-grow: 1;
+            }
+
+            p {
+                text-align: justify;
+            }
+
+            img {
+                border-radius: 10px;
+                width: 100%;
+                margin-bottom: 10px;
+            }
+            
+            .header, .footer {
+                background-color: #fac898;
+            }
+
+            .header {
+                height: 80px;
+            }
+
+            .footer {
+                color: #ffffff;
+                text-align: center;
+                line-height: 150px;
+                height: 150px;
+                margin-top: 80px;
+            }
+
+            .content {
+                width: 60%;
+                flex: 1;
+            }
+
+            .search {
+                border-radius: 15px;
+                background-color: #fff5ee;
+                margin-bottom: 50px;
+                padding: 50px;
+                display: flex;
+                flex-wrap: wrap;
+            }
+
+            .search-bar, .dropdown-label, .search-btn {
+                border: none;
+                border-radius: 10px;
+                box-shadow: 0px 8px 16px 0px #00000033;
+                font-size: 16px;
+                height: 50px;
+                box-sizing: border-box;
+            }
+
+            .search-bar, .dropdown {
+                margin-right: 10px;
+            }
+
+            ::placeholder, .dropdown-label {
+                color: #a9a9a9;
+            }
+
+            .search-bar {
+                height: 50px;
+                padding-left: 15px;
+                flex-grow: 1;
+            }
+
+            input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button {
+                opacity: 1;
+            }
+
+            .dropdown {
+                width: 100px;
+                display: inline-block;
+                position: relative;
+            }
+
+            .dropdown-label {
+                background-color: #ffffff;
+                line-height: 50px;
+                text-align: center;
+                margin-bottom: 5px;
+            }
+
+            .dropdown-content {
+                border-radius: 10px;
+                background-color: #f5f5f5;
+                box-shadow: 0px 8px 16px 0px #00000033;
+                width: 150px;
+                height: 150px;
+                padding: 20px;
+                display: none;
+                overflow: scroll;
+                position: absolute;
+                z-index: 1;
+            }
+
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
+
+            .search-btn {
+                background-color: #e3735e;
+                color: #ffffff;
+                width: 100px;
+            }
+
+            .search-btn:hover {
+                background-color: #fac898;
+                cursor: pointer;
+            }
+
+            .results {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .container {
+                border-radius: 15px;
+                box-shadow: 0px 8px 16px 0px #00000033;
+                font-size: 14px;
+                width: 270px;
+                padding: 10px;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .calories {
+                flex: 1;
+            }
+
+            .info {
+                font-size: 16px;
+                text-align: right;
+                margin-bottom: 10px;
+                position: relative;
+                display: inline-block;
+            }
+
+            .info:hover {
+                cursor: help;
+            }
+
+            .info-box {
+                border-radius: 10px;
+                background-color: #36454fe6;
+                font-size: 12px;
+                line-height: 16px;
+                text-align: left;
+                color: #ffffff;
+                width: 80%;
+                height: 200px;
+                padding: 10px;
+                top: -200px;
+                overflow: scroll;
+                position: absolute;
+                z-index: 1;
+                visibility: hidden;
+            }
+
+            .info:hover .info-box {
+                visibility: visible;
+            }
+
+            .view-btn {
+                border: 3px solid #e3735e;
+                border-radius: 10px;
+                background-color: #ffffff;
+                color: #e3735e;
+                font-size: 16px;
+                width: 100%;
+                height: 50px;
+            }
+
+            .view-btn:hover {
+                background-color: #e3735e;
+                color: #ffffff;
+                cursor: pointer;
+            }
+
+            @media screen and (max-width: 1152px) {
+                .search-bar {
+                    width: 100%;
+                    margin-right: 0;
+                    margin-bottom: 10px;
+                }
+
+                .dropdown {
+                    flex-grow: 1;
+                }
+
+                .search-btn {
+                    flex-grow: 1;
+                }
+            }
+
+            @media screen and (max-width: 768px) {
+                h1 {
+                    font-size: 36px;
+                }
+
+                h1::before, h1::after {
+                    margin-top: 32px;
+                }
+
+                h1::before {
+                    margin-right: 5px;
+                }
+
+                h1::after {
+                    margin-left: 10px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header"></div>
+        <h1>recipe search</h1>
+        <div class="content">
+            <form method="get" onsubmit="return process()">
+                <div class="search">
+                    <input id="search" class="search-bar" type="text" placeholder="search..." name="search" required/>
+                    <div class="dropdown">
+                        <div class="dropdown-label">-- filter --</div>
+                        <div class="dropdown-content">
+                            <b>Nutritional Options</b><br/>
+                            <label><input type="checkbox" name="nutrition" value="balanced">Balanced</label><br/>
+                            <label><input type="checkbox" name="nutrition" value="high-fiber">High-Fiber</label><br/>
+                            <label><input type="checkbox" name="nutrition" value="high-protein">High-Protein</label><br/>
+                            <label><input type ="checkbox" name="nutrition" value="low-fat">Low-Fat</label><br/>
+                            <label><input type="checkbox" name="nutrition" value="low-carb">Low-Carb</label><br/><br/>
+
+                            <b>Dietary Options</b><br/>
+                            <label><input type="checkbox" name="diet" value="dairy-free">Dairy-Free</label><br/>
+                            <label><input type="checkbox" name="diet" value="gluten-free">Gluten-Free</label><br/>
+                            <label><input type="checkbox" name="diet" value="keto-friendly">Keto-Friendly</label><br/>
+                            <label><input type="checkbox" name="diet" value="tree-nut-free">Tree-Nut-Free</label><br/>
+                            <label><input type="checkbox" name="diet" value="vegan">Vegan</label><br/>
+                            <label><input type="checkbox" name="diet" value="vegetarian">Vegetarian</label>
+                        </div>
+                    </div>
+                    <input class="search-btn" type="submit" value="search"/>
+                </div>
+            </form>
+            <h2 class="num-results"></h2>
+            <div class="results">
+            </div>
+        </div>
+        <div class="footer">
+            &copy; 2024 Recipes R Us by domainhub.domains
+        </div>
+        <script>
+            function process() {
+                $(".results").empty();
+    
+                let qstring = "https://api.edamam.com/api/recipes/v2?app_id=03dddf06&app_key=688e692a1c0387b16f4520c8a719a2a7&type=public&q=";
+                qstring += document.getElementById("search").value;
+    
+                document.querySelectorAll("input[type='checkbox'][name='nutrition']").forEach(function (checkbox) {
+                    if (checkbox.checked) {
+                        qstring += "&diet=" + checkbox.value;
+                    }
+                });
+
+                document.querySelectorAll("input[type='checkbox'][name='diet']").forEach(function (checkbox) {
+                    if (checkbox.checked) {
+                        qstring += "&health=" + checkbox.value;
+                    }
+                });
+                
+                res =
+                    fetch(qstring)
+                    .then (res => res.text())
+                    .then (data =>
+                    {
+                        console.log(qstring);
+                        data = JSON.parse(data);
+                        numResults = data.to;
+                        $(".num-results").text(numResults + " results");
+                        for (i = 0; i < numResults; i++) {
+                            $(".results").append("<div class='container " + i + "'></div>");
+    
+                            image = data.hits[i].recipe.images.SMALL.url;
+                            $(".container." + i).append("<img src='" + image + "'></img>");
+    
+                            name = data.hits[i].recipe.label;
+                            $(".container." + i).append("<b>" + name + "</b><br/>");
+    
+                            numIngredients = data.hits[i].recipe.ingredientLines.length;
+                            $(".container." + i).append("<div class=ingredients>");
+                            for (j = 0; j < numIngredients; j++ ){
+                                ingredients = data.hits[i].recipe.ingredientLines[j];
+                                $(".container." + i + " .ingredients").append(ingredients + "<br/>");
+                            }
+                            $(".container." + i).append("</div>");
+
+                            calories = data.hits[i].recipe.calories / data.hits[i].recipe.yield;
+                            $(".container." + i).append("<div class='calories'><em>" + Math.ceil(calories) + " calories </em></div><br>");
+
+                            nutrients = data.hits[i].recipe.totalNutrients;
+                            $(".container." + i).append("<div class='info'>&#9432;<div class='info-box'>");
+                            for (let nutrient in nutrients) {
+                                console.log(nutrients[nutrient].label + ": " + nutrients[nutrient].quantity.toFixed(2) + " " + nutrients[nutrient].unit);
+                                $(".container." + i + " .info-box").append(nutrients[nutrient].label + ": " + nutrients[nutrient].quantity.toFixed(2) + " " + nutrients[nutrient].unit + "<br>");
+                            }
+                            $(".container." + i).append("</div></div>");
+
+                            url = data.hits[i].recipe.url;
+                            $(".container." + i).append("<a href='" + url + "' target='_blank'><button class='view-btn'>View Recipe</button></a>");
+                        }
+                    });
+
+                return false;
+            }
+        </script>
+    </body>
+</html>
