@@ -192,6 +192,13 @@
 
 
 <script>
+    $(document).ready(() => {
+        console.log("here");
+        if (!sessionStorage.getItem("Session")) {
+            window.location.href = '/login';
+        }
+    });
+
     process();
     
     function process() {

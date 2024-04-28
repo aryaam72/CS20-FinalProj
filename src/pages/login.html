@@ -87,10 +87,16 @@
                 body: JSON.stringify({
                     email,
                     password, 
-                })
+                }),
+                headers: {
+                    "Content-Type": "application/json",
+                }
             })
-            .then ((result) => {
-                console.log(result);
+            .then (async (result) => {
+                const session = await result.json();
+                sessionStorage.setItem("Session", JSON.stringify(session));
+                window.location.href = "/";
+          
             })
         }
     </script>

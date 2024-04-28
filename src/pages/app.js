@@ -2,8 +2,10 @@ const express = require('express');
 const { MongoClient } = require('mongodb');
 const app = express();
 const PORT = process.env.PORT || 8080;
-const { addUser } = require('./add-user');
-const { validateLogin } = require('./validate-login');
+const { addUser } = require('../scripts/add-user');
+const { validateLogin } = require('../scripts/validate-login');
+const { createSession } = require('../scripts/createSession');
+const { getUser } = require('../scripts/get-user');
 const bodyParser = require('body-parser')
 app.use(bodyParser.json())
 
@@ -17,16 +19,26 @@ app.get('/signup', (req, res) => {
     res.sendFile(__dirname + '/signup.html');
 })
 
-app.post('/add-user', (req, res) => {
+app.post('/add-user', async (req, res) => {
     console.log(req.body);
-    addUser(req.body.firstName, req.body.lastName, req.body.email, req.body.password);
+    if (await addUser(req.body.firstName, req.body.lastName, req.body.email, req.body.password)) {
+
+    } else {
+        res.status(401);
+        res.send("Email in Use");
+    }
 })
 
-app.post('/validate-login', (req, res) => {
+app.post('/validate-login', async (req, res) => {
     console.log(req.body);
-    if (validateLogin(req.body)) {
-        res.status(200);
-        res.send("Sucess");
+    if (await validateLogin(req.body)) {
+        const user = await getUser(req.body.email);
+        const result = await createSession(req.body.email);
+        result.user = user;
+        res.status(200).json(result);
+    } else {
+        res.status(401);
+        res.send("Invalid Login");
     }
        
 })
