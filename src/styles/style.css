@@ -1,0 +1,91 @@
+* {
+    font-family: "Montserrat";
+}
+
+.footer {
+    height:100px;
+    background-color:#FEBB75;
+    text-align:center;
+    margin-top:50px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+p.footer {
+    margin:auto;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+
+.header {
+    max-width:100%;
+    /* background-color: #FB948F; */
+    background-color: #FEBB75;
+}
+
+.navBar {
+    overflow: hidden;
+    position: relative;
+}
+
+.navBar a {
+    text-decoration: none;
+    display: block;
+    padding:10px 12px;
+    box-sizing:border-box;
+    text-align:center;
+    font-size:23px;
+    /* color: #595959; */
+    color:#000000;
+    float: left;
+}
+
+.navBar a.active {
+    /* background-color: #f95b53; */
+    /* background-color: #fe9c34; */
+    color:#000000;
+}
+
+a.icon {
+    display:none;
+}
+
+a:hover {
+    background-color: #fe9c34;
+    color:#000000;
+}
+
+@media screen and (max-width: 600px) {
+    .navBar a:not(:first-child) {display: none;}
+    .navBar a.icon {
+        float: right;
+        display: block;
+    }
+}
+
+/* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
+@media screen and (max-width: 850px) {
+    .navBar a:not(:first-child) {display: none;}
+    .navBar.responsive {position: relative;}
+    .navBar.responsive a.icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    .navBar.responsive a {
+        float: none;
+        display: block;
+        text-align: left;
+    }
+
+    .navBar a.icon {
+        float: right;
+        display: block;
+    }  
+}
