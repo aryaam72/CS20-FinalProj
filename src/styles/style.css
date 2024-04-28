@@ -1,3 +1,50 @@
+* {
+    font-family: “Montsterrat”;
+    color: #36454f;
+}
+    
+h1 {
+    font-family: "Kaushan Script";
+    font-size: 72px;
+    color: #e3735e;
+    display: flex;
+}
+    
+h1::before, h1::after {
+    content: "";
+    background-color: #e3735e;
+    height: 1px;
+    margin-top: 64px;
+}
+    
+h1::before {
+    width: 20%;
+    margin-right: 10px;
+}
+    
+h1::after {
+    margin-left: 20px;
+    flex-grow: 1;
+}
+    
+@media screen and (max-width: 768px) {
+    h1 {
+    font-size: 36px;
+}
+    
+h1::before, h1::after {
+    margin-top: 32px;
+}
+    
+h1::before {
+    margin-right: 5px;
+}
+    
+h1::after {
+    margin-left: 10px;
+    }
+}
+
 .footer {
     height:100px;
     background-color:#FEBB75;
@@ -36,20 +83,23 @@ html, body {
     margin: auto;
 }
 
-.nav-right {
-    margin-left: 3%;
+.nav-right a {
+    float: right;
+    /* margin-left: 5%; */
 }
 
 .nav-left a {
+    float: left;
+}
+
+.nav-left a, .nav-right a {
     text-decoration: none;
     display: block;
     padding:10px 12px;
     box-sizing:border-box;
     text-align:center;
     font-size:23px;
-    /* color: #595959; */
     color:#000000;
-    float: left;
 }
 
 .nav-left a.active {
@@ -61,7 +111,7 @@ a.icon {
     
 }
 
-.nav-left a:hover {
+.nav-left a:hover, .nav-right a:hover  {
     background-color: #fe9c34;
     color:#000000;
 }
@@ -75,7 +125,7 @@ a.icon {
     }
 }
 
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 1080px) {
     .navBar a:not(:first-child) {display: none;}
     .navBar.responsive {position: relative;}
     .navBar.responsive a.icon {
