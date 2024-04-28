@@ -1,6 +1,6 @@
 const { MongoClient } = require('mongodb');
-import { User } from './user';
-import { validateUser } from './validateUser';
+const { User }  = require('./user');
+const { validateUser } = require('./validateUser');
 
 connURL = "mongodb+srv://group12:12345@recipesrus.b1bvbdp.mongodb.net/?retryWrites=true&w=majority&appName=recipesRUS"
 
@@ -11,8 +11,13 @@ async function addUser(firstName, lastName, email, password) {
     const database = client.db("UsersDB");
     const collection = database.collection("Users");
     let newUser = new User(firstName, lastName, email, password);
-    if (validateUser(newUser)) {
-        await collection.insertOne({newUser});
+    if (await validateUser(newUser)) {
+        await collection.insertOne({
+            firstName: firstName,
+            lastName: lastName,
+            email: email,
+            password: password,
+            isSubscribed: false});
         await client.close();
         return true;
     } else {
