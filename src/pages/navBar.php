@@ -79,7 +79,7 @@
 <?php
     echo "<div class = header>"; 
         echo "<div class = navBar id='navBar'>";
-            echo "<a href='home.html' class='active'>Home</a>";
+            echo "<a href='/' class='active'>Home</a>";
             echo "<a href='recipeSearch.html'>Recipe Search</a>";
             echo "<a href='subscribe.html'>Subscribe</a>";
             echo "<a href='about.html'>About Us</a>";

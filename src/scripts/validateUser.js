@@ -1,5 +1,5 @@
 const { MongoClient } = require('mongodb');
-connURL = "mongodb+srv://group12:12345@recipesrus.b1bvbdp.mongodb.net/?retryWrites=true&w=majority&appName=recipesRUS"
+const connURL = "mongodb+srv://group12:12345@recipesrus.b1bvbdp.mongodb.net/?retryWrites=true&w=majority&appName=recipesRUS"
 
 
 async function validateUser(validUser) {

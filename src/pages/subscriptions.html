@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscriptions</title>
+    <script
+        src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+        crossorigin="anonymous">
+    </script>
+</head>
+<body>
+    <script>
+        $(document).ready(() => {
+            $("#subscribe").click(() => {
+                const session = JSON.parse(sessionStorage.getItem("Session"))
+                if (session.isSubscribed) {
+                    alert("already subscribed");
+                } else {
+                    fetch("/change-subscription",  {
+                        method: "POST",
+                        body: JSON.stringify({
+                            email: session.email,
+                            isSubscribed: true,
+                        }),
+                        headers: {
+                            "Content-Type": "application/json",
+                        }
+                    })
+                    .then (() => {
+                        session.isSubscribed = true;
+                        sessionStorage.setItem("Session", JSON.stringify(session));
+                    })
+                }
+            })
+            $("#unsubscribe").click(() => {
+                const session = JSON.parse(sessionStorage.getItem("Session"))
+                if (!session.isSubscribed) {
+                    alert("Need to subscribe");
+                } else {
+                    fetch("/change-subscription",  {
+                        method: "POST",
+                        body: JSON.stringify({
+                            email: session.email,
+                            isSubscribed: false,
+                        }),
+                        headers: {
+                            "Content-Type": "application/json",
+                        }
+                    })
+                    .then (() => {
+                        session.isSubscribed = false;
+                        sessionStorage.setItem("Session", JSON.stringify(session));
+                    })
+                }
+            })
+        })
+    </script>
+    <button id="subscribe">
+        Subscribe
+    </button>
+    <button id="unsubscribe">
+        End Subscription
+    </button>
+</body>
+</html>

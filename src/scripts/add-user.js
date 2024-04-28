@@ -2,7 +2,7 @@ const { MongoClient } = require('mongodb');
 const { User }  = require('./user');
 const { validateUser } = require('./validateUser');
 
-connURL = "mongodb+srv://group12:12345@recipesrus.b1bvbdp.mongodb.net/?retryWrites=true&w=majority&appName=recipesRUS"
+const connURL = "mongodb+srv://group12:12345@recipesrus.b1bvbdp.mongodb.net/?retryWrites=true&w=majority&appName=recipesRUS"
 
 async function addUser(firstName, lastName, email, password) {
     const client = new MongoClient(connURL);

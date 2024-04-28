@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script
+        src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+        crossorigin="anonymous">
+    </script>
+    <title>Logged Out</title>
+    <style>
+        body {
+            display: flex;
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            justify-content: space-around;
+            background-color: #54598d;
+        }
+        
+        .dialogue {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            position: relative;
+            border-radius: 20px;
+            box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+            width: 360px;
+            background-color: #FFFFFF;
+            height: 360px;
+        }
+        
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+        
+        .text {
+            text-align: center;
+        }
+    </style>
+</head>
+<script>
+    $(document).ready(() => {
+        sessionStorage.clear();
+    });
+</script>
+<body>
+    <div class="container">
+        <div class="dialogue">
+            <div class="text">
+                You are logged out.
+            </div>
+            <div class="text">
+                <a href="/login"> Click Here to Continue to Login </a>
+            </div>
+            
+        </div>
+    </div>
+</body>
+</html>
