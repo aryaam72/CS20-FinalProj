@@ -78,19 +78,19 @@
 
 <?php
     echo "<div class = header>"; 
-        echo "<div class = navBar id='navBar'>"
-            echo "<a href='home.html' class='active'>Home</a>"
-            echo "<a href='recipeSearch.html'>Recipe Search</a>"
-            echo "<a href='subscribe.html'>Subscribe</a>"
-            echo "<a href='about.html'>About Us</a>"
-            echo "<a href='contact.html'>Contact Us</a>"
-            echo "<a href='nutritionSeach.html'>Nutrition Search</a>"
+        echo "<div class = navBar id='navBar'>";
+            echo "<a href='home.html' class='active'>Home</a>";
+            echo "<a href='recipeSearch.html'>Recipe Search</a>";
+            echo "<a href='subscribe.html'>Subscribe</a>";
+            echo "<a href='about.html'>About Us</a>";
+            echo "<a href='contact.html'>Contact Us</a>";
+            echo "<a href='nutritionSeach.html'>Nutrition Search</a>";
 
-            echo "<a href='javascript:void(0);' class='icon' onclick='goHam()'>"
-                echo "<i class='fa fa-bars'></i></a>"
+            echo "<a href='javascript:void(0);' class='icon' onclick='goHam()'>";
+                echo "<i class='fa fa-bars'></i></a>";
                
-        echo "</div>"
-    echo "</div>"
+        echo "</div>";
+    echo "</div>";
 
 ?>
     
