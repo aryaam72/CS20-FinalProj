@@ -54,7 +54,11 @@ html, body {
 
 a.icon {
     display:none;
-    
+}
+
+a:hover {
+    background-color: #fe9c34;
+    color:#000000;
 }
 
 @media screen and (max-width: 600px) {
