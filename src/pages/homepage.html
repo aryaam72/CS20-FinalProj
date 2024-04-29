@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Karma:wght@600;700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="Recipes R Us.jpg">
-
+    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/style.css">
     <style>
         * {
             font-family: "Montserrat";
@@ -59,12 +60,15 @@
             text-align: center;
         }
 
+        #short-text {
+            display: none;
+        }
+
         .trend-recipes h2 {
             text-align: center;
         }
 
         .r0, .r1, .r2 {
-            /* background: #f2f1ee; */
             width: 270px;
             height: 370px;
             border-radius: 10px;
@@ -119,18 +123,36 @@
                 font-size: 20px;
                 width: 80%;
             }
+
+            .text {
+                text-align: center;
+                justify-content: none;
+            }
+
+            #long-text {
+                display: none;
+            }
+
+            #short-text {
+                display: block;
+                text-align: middle;
+            }
         }
         
         @media screen and (max-width: 750px) {
             .mission-container {
                 display:block;
                 width:100%;
+                box-sizing: border-box;
             }
             .text {
                 width: 80%;
                 margin: auto;
                 display:block;
+            }
 
+            .mission-container .img {
+                max-width: 100%;
             }
         }
 
@@ -146,16 +168,35 @@
 </head>
 <body>
 
-    <a href="/logout">Hello</a>
+    <div class = header> 
+        <div class = navBar id='navBar'>
+            <div class="nav-left">
+                <a href='homepage.html' class='active'>Home</a>
+                <a href='recipeSearch.html'>Recipe Search</a>
+                <a href='subscribe.html'>Subscribe</a>
+                <a href='about.html'>About Us</a>
+                <a href='contact.html'>Contact Us</a>
+
+                <a href='javascript:void(0);' class='icon' onclick='goHam()'>
+                <i class='fa fa-bars'></i></a>                
+            </div>
+
+            <div class="nav-right">
+                <a href="logout.html">Logout</a>
+            </div>
+
+        </div>
+    </div>
+
     <div class="heading">
         <h1>Welcome to Recipes R Us!</h1>
     </div>
-        
+
     <div class="mission-container">
         <div class="img"><img style="width:300px" src="../../img/Recipes R Us.jpg"></img></div>
         <div class="text">
             <h2>Our Mission</h2>
-            <p> Our mission at Recipes R Us is to provide a comprehensive platform that 
+            <p id="long-text"> Our mission at Recipes R Us is to provide a comprehensive platform that 
             consolidates a wide variety of recipes from around the world. We aim to empower
             users to easily access healthy, diverse, and delicious meal options to support
             their well-being and culinary exploration. By offering a centralized hub for
@@ -166,6 +207,13 @@
             that everyone can find something delicious to enjoy. By fostering a supportive community of
                 food enthusiasts, we aim to celebrate the joy of cooking while promoting a culture of wellness
                 and diversity in eating habits.</p>
+            
+            <p id="short-text">
+            Our mission at Recipes R Us is to provide a comprehensive platform that 
+            consolidates a wide variety of recipes from around the world. We aim to empower
+            users to easily access healthy, diverse, and delicious meal options to support
+            their well-being and culinary exploration.
+            </p>
         </div>  
     </div>
 
@@ -191,15 +239,30 @@
         <div></div>
     </div>
     
+    <div class='footer'>
+        <p>© 2024 Recipes R Us by domainhub.domains</p>
+    </div>
 
 
 <script>
-    $(document).ready(() => {
-        console.log("here");
-        if (!sessionStorage.getItem("Session")) {
-            window.location.href = '/login';
+    // $(document).ready(() => {
+    //     console.log("here");
+    //     if (!sessionStorage.getItem("Session")) {
+    //         window.location.href = '/login';
+    //     }
+    // });
+
+    
+    function goHam() {
+        var x = document.getElementById("navBar");
+        if (x.className === "navBar") {
+            x.className += " responsive";
+        } else {
+            x.className = "navBar";
         }
-    });
+    }
+
+
 
     process();
     
