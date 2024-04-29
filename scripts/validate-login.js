@@ -6,9 +6,7 @@ async function validateLogin(validUser) {
     await client.connect();
     const database = client.db("UsersDB");
     const collection = database.collection("Users");
-    console.log("login User:", validUser);
     const docs = await collection.findOne({email: validUser.email}  );
-    console.log("login doc:", docs)
     if (!docs) {
         return false;
     } else {    
