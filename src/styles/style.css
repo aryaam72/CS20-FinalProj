@@ -1,5 +1,5 @@
 * {
-    font-family: “Montsterrat”;
+    font-family: "Montserrat";
     color: #36454f;
 }
     
@@ -85,7 +85,6 @@ html, body {
 
 .nav-right a {
     float: right;
-    /* margin-left: 5%; */
 }
 
 .nav-left a {
