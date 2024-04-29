@@ -29,19 +29,19 @@ h1::after {
     
 @media screen and (max-width: 768px) {
     h1 {
-    font-size: 36px;
-}
+        font-size: 36px;
+    }
+        
+    h1::before, h1::after {
+        margin-top: 32px;
+    }
+        
+    h1::before {
+        margin-right: 5px;
+    }
     
-h1::before, h1::after {
-    margin-top: 32px;
-}
-    
-h1::before {
-    margin-right: 5px;
-}
-    
-h1::after {
-    margin-left: 10px;
+    h1::after {
+        margin-left: 10px;
     }
 }
 
@@ -50,14 +50,13 @@ h1::after {
     background-color:#FEBB75;
     text-align:center;
     margin-top:50px;
-
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 p.footer {
-    margin:auto;
+    margin: auto;
 }
 
 html, body {
@@ -65,10 +64,10 @@ html, body {
     padding: 0;
 }
 
-
 .header {
-    max-width:100%;
     background-color: #FEBB75;
+    max-width:100%;
+    padding: 10px;
 }
 
 .navBar {
@@ -85,7 +84,6 @@ html, body {
 
 .nav-right a {
     float: right;
-    /* margin-left: 5%; */
 }
 
 .nav-left a {
@@ -99,21 +97,20 @@ html, body {
     box-sizing:border-box;
     text-align:center;
     font-size:23px;
-    color:#000000;
+    color:#653030;
 }
 
 .nav-left a.active {
-    color:#000000;
+    font-weight: bold;
 }
 
 a.icon {
     display:none;
-    
 }
 
 .nav-left a:hover, .nav-right a:hover  {
     background-color: #fe9c34;
-    color:#000000;
+    color:#653030;
 }
 
 
