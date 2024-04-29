@@ -2,13 +2,9 @@
 <html>
     <head>
         <title>Recipe Search</title>
+        <link rel="stylesheet" href="../styles/style.css">
         <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
         <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-        <script>
-            if (sessionStorage.getItem() == false) {
-                window.location.href = "subscribe.html";
-            }
-        </script>
         <style>
             * {
                 font-family: "Montserrat";
@@ -57,22 +53,6 @@
                 border-radius: 10px;
                 width: 100%;
                 margin-bottom: 10px;
-            }
-            
-            .header, .footer {
-                background-color: #fac898;
-            }
-
-            .header {
-                height: 80px;
-            }
-
-            .footer {
-                color: #ffffff;
-                text-align: center;
-                line-height: 150px;
-                height: 150px;
-                margin-top: 80px;
             }
 
             .content {
@@ -277,9 +257,29 @@
                 }
             }
         </style>
+        <script>
+            if (sessionStorage.getItem() == false) {
+                window.location.href = "subscribe.html";
+            }
+        </script>
     </head>
     <body>
-        <div class="header"></div>
+        <div class = header> 
+            <div class = navBar id='navBar'>
+                <div class="nav-left">
+                    <a href='homepage.html' class='active'>Home</a>
+                    <a href='search.html'>Recipe Search</a>
+                    <a href='subscribe.html'>Subscribe</a>
+                    <a href='about.html'>About Us</a>
+                    <a href='contact.html'>Contact Us</a>
+                    <a href='javascript:void(0);' class='icon' onclick='goHam()'>
+                    <i class='fa fa-bars'></i></a>                
+                </div>
+                <div class="nav-right">
+                    <a href="logout.html">Logout</a>
+                </div>
+            </div>
+        </div>
         <h1>Recipe Search</h1>
         <div class="content">
             <form method="get" onsubmit="return process()">
@@ -313,7 +313,7 @@
             </div>
         </div>
         <div class="footer">
-            &copy; 2024 Recipes R Us by domainhub.domains
+            <p>© 2024 Recipes R Us by domainhub.domains</p>
         </div>
         <script>
             $(document).ready(function () {
