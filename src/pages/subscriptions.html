@@ -26,6 +26,10 @@
 <body>
     <script>
         $(document).ready(() => {
+            if (!sessionStorage.getItem("Session")) {
+                window.location.href = '/login';
+                return;
+            }
             $("#subscribe").click(() => {
                 const session = JSON.parse(sessionStorage.getItem("Session"))
                 if (session.isSubscribed) {

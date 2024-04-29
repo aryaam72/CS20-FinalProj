@@ -50,7 +50,10 @@ app.get('/logout', (req, res) => {
 app.post('/add-user', async (req, res) => {
     console.log(req.body);
     if (await addUser(req.body.firstName, req.body.lastName, req.body.email, req.body.password)) {
-
+        const user = await getUser(req.body.email);
+        const result = await createSession(req.body.email);
+        result.user = user;
+        res.status(200).json(result);
     } else {
         res.status(401);
         res.send("Email in Use");
