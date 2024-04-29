@@ -45,7 +45,7 @@
             font-family: "Roboto", sans-serif;
             text-transform: uppercase;
             outline: 0;
-            background: #4CAF50;
+            background: #e3735e;
             width: 100%;
             border: 0;
             padding: 15px;
@@ -58,7 +58,7 @@
         .form button:hover,
         .form button:active,
         .form button:focus {
-            background: #43A047;
+            background: #e3735e;
         }
 
         .form .message {
@@ -68,12 +68,12 @@
         }
 
         .form .message a {
-            color: #4CAF50;
+            color: #e3735e;
             text-decoration: none;
         }
 
         body {
-            background: #76b852;
+            background: #FEBB75;
             font-family: "Roboto", sans-serif;
         }
     </style>
@@ -100,7 +100,7 @@
                         Register
                     </button>
                 </div>
-                <p class="message">Already registered? <a href="/login">Sign In</a></p>
+                <p class="message">Already registered? <a href="./login.html">Sign In</a></p>
             </form>
         </div>
     </div>
@@ -125,13 +125,9 @@
                         "Content-Type": "application/json",
                     }
                 })
-                .then (async (result) => {
+                .then ((result) => {
                     if (result.status != 200) {
                         alert("Email already in use, please choose another.");
-                    } else {
-                        const session = await result.json();
-                        sessionStorage.setItem("Session", JSON.stringify(session));
-                        window.location.href = "/";
                     }
                     console.log(result);
                 })

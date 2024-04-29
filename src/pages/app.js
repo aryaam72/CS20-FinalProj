@@ -9,7 +9,7 @@ const { getUser } = require('../scripts/get-user');
 const { changeSubscription } = require('../scripts/change-subscriptions');
 const bodyParser = require('body-parser')
 app.use(bodyParser.json())
-app.use(express.static('public'));
+app.use(express.static(__dirname + 'public'));
 
 app.use(express.urlencoded({ extended: true }));
 
@@ -17,7 +17,12 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + '/homepage.html');
 });
 
-app.get('/signup', (req, res) => {
+app.get('/homepage.html', (req, res) => {
+    res.sendFile(__dirname + '/homepage.html');
+});
+
+//used to be /pagename made /pagename.html in the get
+app.get('/signup.html', (req, res) => {
     res.sendFile(__dirname + '/signup.html');
 })
 
@@ -26,23 +31,24 @@ app.get('/login', (req, res) => {
 
 })
 
-app.get('/search', (req, res) => {
+
+app.get('/search.html', (req, res) => {
     res.sendFile(__dirname + '/search.html')
 })
 
-app.get('/about', (req, res) => {
+app.get('/about.html', (req, res) => {
     res.sendFile(__dirname + '/about.html');
 })
 
-app.get('/subscriptions', (req, res) => {
+app.get('/contact.html', (req, res) => {
+    res.sendFile(__dirname + '/contact.html');
+})
+
+app.get('/subscriptions.html', (req, res) => {
     res.sendFile(__dirname + '/subscriptions.html');
 })
 
-app.get('/subscribe', (req, res) => {
-    res.sendFile(__dirname + '/pleaseSub.html');
-})
-
-app.get('/logout', (req, res) => {
+app.get('/logout.html', (req, res) => {
     res.sendFile(__dirname + '/logout.html')
 })
 
@@ -50,10 +56,7 @@ app.get('/logout', (req, res) => {
 app.post('/add-user', async (req, res) => {
     console.log(req.body);
     if (await addUser(req.body.firstName, req.body.lastName, req.body.email, req.body.password)) {
-        const user = await getUser(req.body.email);
-        const result = await createSession(req.body.email);
-        result.user = user;
-        res.status(200).json(result);
+
     } else {
         res.status(401);
         res.send("Email in Use");
