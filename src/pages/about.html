@@ -6,10 +6,22 @@
     <title>About Us</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Karma:wght@600;700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="Recipes R Us.jpg">
+    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/style.css">
     <style>
+        *{
+            font-family: “Montsterrat”;
+            color: #36454f;
+        }
         .header {
             text-align: center;
             margin-bottom: 4%;
+        }
+        .heading {
+            text-align: center;
+            font-size: 25px;
         }
         .pagecontainer {
             display: inline-flex;
@@ -54,6 +66,7 @@
                 display: flex;
                 flex-direction: row;
                 max-width: 80%;
+                justify-content: center;
             }
 
             .aimg {
@@ -71,32 +84,96 @@
                 margin-left: 9%;
             }
         }
+
+        @media screen and (max-width: 720px) {
+            .aimg {
+                max-width: 150px;
+            }
+            .photos {
+                justify-content: center;
+                display: flex;
+                flex-direction: row;
+                max-width: 60%;
+            }
+
+        }
+
+        @media screen and (max-width: 600px) {
+            .aimg {
+                max-width: 100px;
+            }
+            .photos {
+                justify-content: center;
+                display: flex;
+                flex-direction: row;
+                max-width: 60%;
+            }
+
+        }
+
+
     </style>
 </head>
 <body>
-    <a href='/' class='active'>Home</a>
+      <div class = header> 
+        <div class = navBar id='navBar'>
+            <div class="nav-left">
+                <a href='homepage.html' class='active'>Home</a>
+                <a href='search.html'>Recipe Search</a>
+                <a href='subscribe.html'>Subscribe</a>
+                <a href='about.html'>About Us</a>
+                <a href='contact.html'>Contact Us</a>
 
-    <div class="header">
+                <a href='javascript:void(0);' class='icon' onclick='goHam()'>
+                <i class='fa fa-bars'></i></a>                
+            </div>
+
+            <div class="nav-right">
+                <a href="logout.html">Logout</a>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="heading">
         <h1>About Us</h1>
     </div>
     
     
     <div class="pagecontainer">
         <div class="text">
-            <h3>The nutritionists that started it all...</h3>
+           <h3>The nutritionists that started it all...</h3>
             <p>In a world where fast food reigns supreme, three nutritionists set out to change the narrative by creating Recipes R Us—an online sanctuary for accessible, nutritious recipes. Dr. Emily Carter, Dr. Miguel Rodriguez, and Dr. Sarah Lee combined their expertise to make healthy cooking effortless for everyone.</p>
             <p>Dr. Emily Carter, fueled by her background in public health, envisioned Recipes R Us as a platform that democratized healthy eating. With her keen insight into nutrition education, Emily designed the platform to be user-friendly, ensuring that individuals of all skill levels could easily navigate through the treasure trove of recipes.</p>
             <p>Dr. Miguel Rodriguez, a culinary virtuoso, injected Recipes R Us with a burst of flavor and creativity. His mission was to dispel the notion that healthy food was bland and uninspiring. Miguel's recipes showcased a fusion of global flavors, proving that nutritious meals could be both delicious and exciting.</p>
             <p>Dr. Sarah Lee, a holistic nutritionist, brought a mindful approach to Recipes R Us. Her emphasis on nourishing the body, mind, and spirit guided users towards a balanced lifestyle. Through simple yet nourishing recipes, Sarah encouraged users to cultivate a deeper connection with their food and overall well-being.</p>
             <p>Together, Emily, Miguel, and Sarah transformed Recipes R Us into a haven for wellness seekers. With its intuitive interface and diverse recipe collection, the platform empowered individuals to embark on a journey of culinary exploration and healthy living. Through their collective efforts, they crafted a community where nutritious eating was not only accessible but also enjoyable for all.</p>
-
         </div>
         <div class="photos">
-            <img class="aimg" src="../../img/pic1.jpg" alt="baking">
-            <img class="aimg" src="../../img/pic2.jpg" alt="baking">
-            <img class="aimg" src="../../img/pic3.jpg" alt="baking">
+            <img class="aimg" id="img1" src="../../img/pic1.jpg" alt="baking">
+            <img class="aimg" id="img2" src="../../img/pic2.jpg" alt="baking">
+            <img class="aimg" id="img3" src="../../img/pic3.jpg" alt="baking">
         </div>
     </div>
+
+
+    
+    <div class='footer'>
+        <p>© 2024 Recipes R Us by domainhub.domains</p>
+    </div>
+
+
+    <script>
+        function goHam() {
+            var x = document.getElementById("navBar");
+            if (x.className === "navBar") {
+                x.className += " responsive";
+            } else {
+                x.className = "navBar";
+            }
+        }
+    </script>
+
 
 </body>
 </html>
