@@ -319,7 +319,7 @@
             }
         }
 
-        setInterval(paywall, 100);
+        setTimeout(paywall, 100);
 
         function paywall() {
             if (!sessionStorage.getItem("Session")) {
