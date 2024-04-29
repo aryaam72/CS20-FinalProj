@@ -339,18 +339,18 @@
                             $(".container." + i).append("<div class=ingredients>");
                             for (j = 0; j < numIngredients; j++ ){
                                 ingredients = data.hits[i].recipe.ingredientLines[j];
-                                $(".container." + i + " .ingredients").append(ingredients + "<br/>");
+                                $(".container." + i + " .ingredients").append(ingredients + "<br/><br/>");
                             }
                             $(".container." + i).append("</div>");
 
                             calories = data.hits[i].recipe.calories / data.hits[i].recipe.yield;
-                            $(".container." + i).append("<div class='calories'><em>" + Math.ceil(calories) + " calories </em></div><br>");
+                            $(".container." + i).append("<div class='calories'><em>" + Math.ceil(calories) + " calories </em></div><br/>");
 
                             nutrients = data.hits[i].recipe.totalNutrients;
                             $(".container." + i).append("<div class='info'>&#9432;<div class='info-box'>");
                             for (let nutrient in nutrients) {
                                 console.log(nutrients[nutrient].label + ": " + nutrients[nutrient].quantity.toFixed(2) + " " + nutrients[nutrient].unit);
-                                $(".container." + i + " .info-box").append(nutrients[nutrient].label + ": " + nutrients[nutrient].quantity.toFixed(2) + " " + nutrients[nutrient].unit + "<br>");
+                                $(".container." + i + " .info-box").append(nutrients[nutrient].label + ": " + nutrients[nutrient].quantity.toFixed(2) + " " + nutrients[nutrient].unit + "<br/>");
                             }
                             $(".container." + i).append("</div></div>");
 
