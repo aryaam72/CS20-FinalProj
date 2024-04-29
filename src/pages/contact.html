@@ -5,10 +5,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact</title>
 
+    <link rel="stylesheet" href="../styles/style.css"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Karma:wght@600;700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
     <style>
+
+
+
+/* * {
+    font-family: “Montsterrat”;
+    color: #36454f;
+}
+
+h1 {
+    font-family: "Kaushan Script";
+    font-size: 72px;
+    color: #e3735e;
+    display: flex;
+}
+
+h1::before, h1::after {
+    content: "";
+    background-color: #e3735e;
+    height: 1px;
+    margin-top: 64px;
+}
+
+h1::before {
+    width: 20%;
+    margin-right: 10px;
+}
+
+h1::after {
+    margin-left: 20px;
+    flex-grow: 1;
+}
+
+@media screen and (max-width: 768px) {
+    h1 {
+        font-size: 36px;
+    }
+
+    h1::before, h1::after {
+        margin-top: 32px;
+    }
+
+    h1::before {
+        margin-right: 5px;
+    }
+
+    h1::after {
+        margin-left: 10px;
+    }
+} */
+
+
+
         * {
             font-family: "Montserrat";
         }
@@ -23,8 +78,8 @@
             margin:auto;
             padding: 10px 10px;
             font-size:20px;
-            margin-top:20px;
-            margin-bottom:20px;
+            /* margin-top:20px;
+            margin-bottom:20px; */
         }
 
         #fname, #lname {
@@ -47,14 +102,19 @@
             width:70%;
             margin:auto;
             padding:15px 15px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.09);
         }  
         
         .text {
             margin:auto;
             width:70%;
-            text-align:center;
+            /* text-align:center; */
             font-size:25px;
             padding:10px 10px;
+        }
+
+        h2 {
+            font-size:30px;
         }
 
         hr {
@@ -65,20 +125,22 @@
             display:flex;
             width:70%;
             margin:auto;
+            flex-wrap:wrap;
         }
         
         .contact, .phone, .socialMedia {
             display:block;
             margin:auto;
             padding-left: 10px;
+            padding-right:10px;
+            padding-top:10px;
+            padding-bottom: 10px;
+            height:138px;
+            box-sizing: border-box;
         }
 
         b {
             font-weight:600;
-        }
-        
-        .phone > :first-child, .socialMedia > :first-child {
-            padding-bottom: 20px;
         }
 
         .footer {
@@ -101,18 +163,71 @@
             padding: 0;
         } 
 
+        .contact {
+            height:138px;
+            box-sizing: border-box;
+        }
+
+        @media screen and (max-width: 575px) {
+            .contact, .phone, .socialMedia {
+                width:280px;
+                box-sizing: border-box;
+                padding-top:0px;
+                padding-bottom: 0px;
+                height:auto;
+                margin-bottom:19.5px;
+            }
+
+            .contact {
+                margin-top:19.5px;
+            }
+        }
+
+        @media screen and (max-width: 450px) {
+            .contactContainer, .formContainer, hr, .text {
+                width:85%;
+            }
+        }
     </style>
 
 
 </head>
 <body>
+    <div class = header> 
+        <div class = navBar id="navBar">
 
-    <div class = "header">
+            <div class="nav-left">
+                <a href="home.html" class="active">Home</a>
+                <a href="recipeSearch.html">Recipe Search</a>
+                <a href="subscribe.html">Subscribe</a>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact Us</a>
+                <a href="javascript:void(0);" class="icon" onclick="goHam()">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        function goHam() {
+            var x = document.getElementById("navBar");
+            if (x.className === "navBar") {
+                x.className += " responsive";
+            } else {
+                x.className = "navBar";
+            }
+        }
+    </script>
+
+    <div class = "title">
         <h1 style="text-align:center;">Contact Us</h1>
+        <h2 style="text-align:center;">Feedback Form</h2>
         <div class = "text">
             Please feel free to leave a message for our team. We would love to 
             hear your thoughts and we appreciate any feedback!
-        </div>
+        </div><br>
     </div>
     
     <div class ="formContainer">
@@ -132,7 +247,7 @@
         <input type='submit' value='Submit Order' id="submitBtn">
     </form>
     </div>
-
+    <br>
     <hr>
 
     <div class="contactContainer">
@@ -144,12 +259,12 @@
             Medford, MA 02155
         </div>
         <div class="phone">
-            <div class="email"><b>Email Address</b><br>contact@recipesrus.com</div>
+            <div class="email"><b>Email Address</b><br>contact@recipesrus.com</div><br>
             <div class="number"><b>Phone Number</b><br>+1 (617) 627-5000</div>
         </div>
 
         <div class="socialMedia">
-            <div class="socials"><b>Instagram</b><br>@recipesrus.ig</div>
+            <div class="socials"><b>Instagram</b><br>@recipesrus.ig</div><br>
             <div class="socials"><b>Twitter</b><br>@recipesrus.twitter</div>
         </div>
     </div>
@@ -169,7 +284,6 @@
                 alert("Please enter a valid email");
                 return false;
             }
-
         }
     </script>
     
