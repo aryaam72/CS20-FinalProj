@@ -4,11 +4,12 @@ const app = express();
 const PORT = process.env.PORT || 8080;
 const { addUser } = require('../scripts/add-user');
 const { validateLogin } = require('../scripts/validate-login');
-const { createSession } = require('./createSession');
+const { createSession } = require('../scripts/createSession');
 const { getUser } = require('../scripts/get-user');
 const { changeSubscription } = require('../scripts/change-subscriptions');
 const bodyParser = require('body-parser')
 app.use(bodyParser.json())
+app.use(express.static(__dirname + 'public'));
 
 app.use(express.urlencoded({ extended: true }));
 
@@ -23,6 +24,10 @@ app.get('/signup', (req, res) => {
 app.get('/login', (req, res) => {
     res.sendFile(__dirname + '/login.html');
 
+})
+
+app.get('/search', (req, res) => {
+    res.sendFile(__dirname + '/search.html')
 })
 
 app.get('/about', (req, res) => {

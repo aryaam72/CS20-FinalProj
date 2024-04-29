@@ -126,10 +126,13 @@
                     }
                 })
                 .then ((result) => {
+                    if (result.status != 200) {
+                        alert("Email already in use, please choose another.");
+                    }
                     console.log(result);
                 })
             } else {
-                alert("Please enter a valid email");
+                alert("Please enter a valid email address");
                 return false;
             }
 

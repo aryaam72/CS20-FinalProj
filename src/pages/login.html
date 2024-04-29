@@ -93,9 +93,14 @@
                 }
             })
             .then (async (result) => {
-                const session = await result.json();
-                sessionStorage.setItem("Session", JSON.stringify(session));
-                window.location.href = "/";
+                if (result.status == 200) {
+                    const session = await result.json();
+                    sessionStorage.setItem("Session", JSON.stringify(session));
+                    window.location.href = "/";
+                } else {
+                    alert("Email or Password Incorrect");
+                }
+                
           
             })
         }
