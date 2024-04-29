@@ -9,7 +9,7 @@ const { getUser } = require('../scripts/get-user');
 const { changeSubscription } = require('../scripts/change-subscriptions');
 const bodyParser = require('body-parser')
 app.use(bodyParser.json())
-app.use(express.static(__dirname + 'public'));
+app.use(express.static('public'));
 
 app.use(express.urlencoded({ extended: true }));
 
@@ -36,6 +36,10 @@ app.get('/about', (req, res) => {
 
 app.get('/subscriptions', (req, res) => {
     res.sendFile(__dirname + '/subscriptions.html');
+})
+
+app.get('/subscribe', (req, res) => {
+    res.sendFile(__dirname + '/pleaseSub.html');
 })
 
 app.get('/logout', (req, res) => {
