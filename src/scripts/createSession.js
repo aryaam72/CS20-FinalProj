@@ -4,7 +4,6 @@ connURL = "mongodb+srv://group12:12345@recipesrus.b1bvbdp.mongodb.net/?retryWrit
 async function createSession(email) {
     const client = new MongoClient(connURL);
     await client.connect();
-    console.log('Connected to the database');
     const database = client.db("SessionDB");
     const collection = database.collection("Sessions");
     const session = await collection.insertOne({email: email});

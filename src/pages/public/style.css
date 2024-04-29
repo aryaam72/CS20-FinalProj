@@ -2,6 +2,10 @@
     font-family: "Montserrat";
     color: #36454f;
 }
+
+#login, #logout, #signup {
+    display: none;
+}
     
 h1 {
     font-family: "Kaushan Script";
@@ -67,7 +71,6 @@ html, body {
 .header {
     background-color: #FEBB75;
     max-width:100%;
-    padding: 10px;
 }
 
 .navBar {
@@ -93,7 +96,7 @@ html, body {
 .nav-left a, .nav-right a {
     text-decoration: none;
     display: block;
-    padding:10px 12px;
+    padding: 10px 12px;
     box-sizing:border-box;
     text-align:center;
     font-size:23px;
@@ -120,6 +123,9 @@ a.icon {
         float: right;
         display: block;
     }
+    .navBar .nav-right a { 
+        display: block;
+    }
 }
 
 @media screen and (max-width: 1080px) {
@@ -134,6 +140,10 @@ a.icon {
         float: none;
         display: block;
         text-align: left;
+    }
+
+    .navBar.responsive .nav-right {
+        display: none;
     }
 
     .navBar a.icon {

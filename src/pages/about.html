@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us</title>
     <link rel="icon" type="image/x-icon" href="Recipes R Us.jpg">
-    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <style>
@@ -253,6 +253,12 @@
 
 
     </style>
+    <script
+        src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+        crossorigin="anonymous">
+    </script>
+
 </head>
 <body>
     <div class="header"> 
@@ -267,7 +273,9 @@
                 <i class='fa fa-bars'></i></a>                
             </div>
             <div class="nav-right">
-                <a href="logout.html">Logout</a>
+                <a id="logout" href="logout.html">Log Out</a>
+                <a id="login" href="login.html">Log In</a>
+                <a id="signup" href="signup.html">Sign Up</a>
             </div>
         </div>
     </div>
@@ -287,9 +295,9 @@
             <p>Together, Emily, Miguel, and Sarah transformed Recipes R Us into a haven for wellness seekers. With its intuitive interface and diverse recipe collection, the platform empowered individuals to embark on a journey of culinary exploration and healthy living. Through their collective efforts, they crafted a community where nutritious eating was not only accessible but also enjoyable for all.</p>
         </div>
         <div class="photos">
-            <img class="aimg" id="img1" src="../../img/pic1.jpg" alt="baking">
-            <img class="aimg" id="img2" src="../../img/pic2.jpg" alt="baking">
-            <img class="aimg" id="img3" src="../../img/pic3.jpg" alt="baking">
+            <img class="aimg" id="img1" src="/pic1.jpg" alt="baking">
+            <img class="aimg" id="img2" src="/pic2.jpg" alt="baking">
+            <img class="aimg" id="img3" src="/pic3.jpg" alt="baking">
         </div>
     </div>
 
@@ -301,6 +309,15 @@
 
 
     <script>
+        $(document).ready(() => {
+            if (!sessionStorage.getItem("Session")) {
+                $("#login").toggle();
+                $("#signup").toggle();
+            } else {
+                $("#logout").toggle();
+            }
+        });
+
         function goHam() {
             var x = document.getElementById("navBar");
             if (x.className === "navBar") {

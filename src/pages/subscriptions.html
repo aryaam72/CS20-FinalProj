@@ -9,163 +9,49 @@
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
         crossorigin="anonymous">
     </script>
-    <link rel="stylesheet" href="../styles/style.css"/>
+    <link rel="icon" type="image/x-icon" href="Recipes R Us.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css"/>
     <style>
-        body {
-            padding: 0;
-            margin: 0;
-        }
-        .header {
-            height: 80px;
-        }
-        .header, .footer {
-            background-color: #fac898;
-        }
-
-        * {
-            font-family: "Montserrat";
-            color: #36454f;
-        }
-            
-        h1 {
-            font-family: "Kaushan Script";
-            font-size: 72px;
-            color: #e3735e;
-            display: flex;
-        }
-            
-        h1::before, h1::after {
-            content: "";
-            background-color: #e3735e;
-            height: 1px;
-            margin-top: 64px;
-        }
-            
-        h1::before {
-            width: 20%;
-            margin-right: 10px;
-        }
-            
-        h1::after {
-            margin-left: 20px;
-            flex-grow: 1;
-        }
-            
-        @media screen and (max-width: 768px) {
-            h1 {
-            font-size: 36px;
-        }
-            
-        h1::before, h1::after {
-            margin-top: 32px;
-        }
-            
-        h1::before {
-            margin-right: 5px;
-        }
-            
-        h1::after {
-            margin-left: 10px;
-            }
+        #subscribe {
+            text-transform: uppercase;
+            outline: 0;
+            background: #e3735e;
+            border-radius: 20px;
+            width:200px;
+            border: 0;
+            padding: 15px;
+            color: #FFFFFF;
+            font-size: 14px;
+            transition: all 0.3 ease;
+            cursor: pointer;
         }
 
-        .footer {
-            height:100px;
-            background-color:#FEBB75;
-            text-align:center;
-            margin-top:50px;
-
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        #unsubscribe {
+            text-transform: uppercase;
+            margin-left: 4%;
+            outline: 0;
+            background: #e3735e;
+            border-radius: 20px;
+            width: 200px;
+            border: 0;
+            padding: 15px;
+            color: #FFFFFF;
+            font-size: 14px;
+            transition: all 0.3 ease;
         }
 
-        p.footer {
-            margin:auto;
-        }
-
-        html, body {
-            margin: 0;
-            padding: 0;
-        }
-
-
-        .header {
-            max-width:100%;
-            background-color: #FEBB75;
-        }
-
-        .navBar {
-            overflow: hidden;
-            position: relative;
-            display: block;
-        }
-
-        .logo {
-            display: block;
+        .button {
+            max-width: 500px;
             width: 100%;
             margin: auto;
         }
 
-        .nav-right a {
-            float: right;
-        }
-
-        .nav-left a {
-            float: left;
-        }
-
-        .nav-left a, .nav-right a {
-            text-decoration: none;
-            display: block;
-            padding:10px 12px;
-            box-sizing:border-box;
-            text-align:center;
-            font-size:23px;
-            color:#000000;
-        }
-
-        .nav-left a.active {
-            color:#000000;
-        }
-
-        a.icon {
-            display:none;
-            
-        }
-
-        .nav-left a:hover, .nav-right a:hover  {
-            background-color: #fe9c34;
-            color:#000000;
-        }
-
-
-        @media screen and (max-width: 600px) {
-            .navBar a:not(:first-child) {display: none;}
-            .navBar a.icon {
-                float: right;
-                display: block;
-            }
-        }
-
-        @media screen and (max-width: 1080px) {
-            .navBar a:not(:first-child) {display: none;}
-            .navBar.responsive {position: relative;}
-            .navBar.responsive a.icon {
-                position: absolute;
-                right: 0;
-                top: 0;
-            }
-            .navBar.responsive a {
-                float: none;
-                display: block;
-                text-align: left;
-            }
-
-            .navBar a.icon {
-                float: right;
-                display: block;
-            }  
+        html, body {
+            padding: 0;
+            height: 100%;
+            margin: 0;
         }
     </style>
 </head>
@@ -174,126 +60,66 @@
         <div class = navBar id='navBar'>
             <div class="nav-left">
                 <a href='homepage.html'>Home</a>
-                <a href='about.html' class='active'>About Us</a>
+                <a href='about.html'>About Us</a>
                 <a href='search.html'>Recipe Search</a>
-                <a href='subscriptions.html'>Subscribe</a>
+                <a href='subscriptions.html' class='active'>Subscribe</a>
                 <a href='contact.html'>Contact Us</a>
                 <a href='javascript:void(0);' class='icon' onclick='goHam()'>
                 <i class='fa fa-bars'></i></a>                
             </div>
             <div class="nav-right">
-                <a href="logout.html">Logout</a>
+                <a href="logout.html">Log Out</a>
             </div>
         </div>
     </div>
 
-    <div class="packages-section" id="packages-section">
-        <h2>Our Packages</h2>
-        <table class="packages-table">
-            <thead>
-                <tr>
-                    <th>Packages</th>
-                    <th>Features</th>
-                    <th>Monthly Cost</th>
-                    <th>Sign Up</th>
-                </tr>
-            </thead>
-
-            <tbody>
-
-                Basic Plan
-        Monthly Cost: $4.99
-        Features:
-            Access to recipe search functionality
-            Save favorite recipes
-            Weekly newsletter with new recipes
-            Limited ad-supported browsing
-
-    Premium Plan
-        Monthly Cost: $9.99
-        Features:
-            Full access to recipe search database
-            Save unlimited favorite recipes
-            Weekly newsletter with exclusive recipes
-            Ad-free browsing experience
-            Priority customer support
-
-
-
-            
-                <tr>
-                    <td class="package-title">Basic Plan<br></td>
-                    <td>
-                        <ul>
-                            <li>Access to recipe search functionality</li>
-                            <li>Limited ad-supported browsing</li>
-                            <li>Weekly newsletter with exclusive recipes</li>
-                        
-                        </ul>
-                    </td>
-                    <td>$4.99</td>
-                    <td class="sign-up">
-                        <a href="signup.html">Sign Up</a>
-                    </td>
-
-                <tr>
-                    <td  class="package-title">Intermediate Package</td>
-                    <td><strong>First consultation is free</strong>, then $150 one-time payment</td>
-                    <td>
-                        <ul>
-                            <li>• Itinerary Planning and Booking Assistance</li>
-                            <li>• Personalized itinerary planning based on preferences</li>
-                            <li>• Booking assistance for accommodations and transportation</li>
-                            <li>• Detailed destination information and local tips</li>
-                            <li>• 24/7 customer support during the trip</li>
-                            <li>• Access to exclusive travel deals and discounts</li>
-                            <li>• Assistance with visa and travel documentation</li>
-                        </ul>
-                    </td>
-                    <td class="sign-up-container">
-                        <a href="sign-up.html" class="package-signup-button">Sign Up</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td  class="package-title">Basic Package</td>
-                    <td><strong>First consultation is free</strong>, then $100 one-time payment</td>
-                    <td>
-                        <ul>
-                            <li>• Budget-Focused Assistance</li>
-                            <li>• Assistance in creating a budget-friendly travel plan</li>
-                            <li>• Basic itinerary suggestions</li>
-                            <li>• Access to budget travel tips and hacks</li>
-                            <li>• Limited support during the trip</li>
-                            <li>• Email support for travel-related queries</li>
-                            <li>• Regular updates on budget travel trends</li>
-                        </ul>
-                    </td>
-                    <td class="sign-up-container">
-                        <a href="sign-up.html" class="package-signup-button">Sign Up</a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+    <div class="heading">
+        <h1>Subscriptions</h1>
     </div>
 
+    <div class="packages-section" id="packages-section">
+        <div>
 
-
-
-
-
-
+        </div>
+    </div>
+    <div class="button">
+        <button id="subscribe">
+            Subscribe
+        </button>
+        <button id="unsubscribe">
+            End Subscription
+        </button>
+    </div>
 
     <script>
+        setInterval(paywall, 100);
+
+        function paywall() {
+            if (!sessionStorage.getItem("Session")) {
+                alert("Please Login to Continue");
+                window.location.href = '/login.html';
+            }
+        }
+
+        function goHam() {
+            var x = document.getElementById("navBar");
+            if (x.className === "navBar") {
+                x.className += " responsive";
+            } else {
+                x.className = "navBar";
+            }
+        }
+
         $(document).ready(() => {
             $("#subscribe").click(() => {
                 const session = JSON.parse(sessionStorage.getItem("Session"))
-                if (session.isSubscribed) {
-                    alert("already subscribed");
+                if (session.user.isSubscribed) {
+                    alert("Already Subscribed");
                 } else {
                     fetch("/change-subscription",  {
                         method: "POST",
                         body: JSON.stringify({
-                            email: session.email,
+                            email: session.user.email,
                             isSubscribed: true,
                         }),
                         headers: {
@@ -301,20 +127,20 @@
                         }
                     })
                     .then (() => {
-                        session.isSubscribed = true;
+                        session.user.isSubscribed = true;
                         sessionStorage.setItem("Session", JSON.stringify(session));
                     })
                 }
             })
             $("#unsubscribe").click(() => {
                 const session = JSON.parse(sessionStorage.getItem("Session"))
-                if (!session.isSubscribed) {
-                    alert("Need to subscribe");
+                if (!session.user.isSubscribed) {
+                    alert("Not Subscribed");
                 } else {
                     fetch("/change-subscription",  {
                         method: "POST",
                         body: JSON.stringify({
-                            email: session.email,
+                            email: session.user.email,
                             isSubscribed: false,
                         }),
                         headers: {
@@ -322,19 +148,12 @@
                         }
                     })
                     .then (() => {
-                        session.isSubscribed = false;
+                        session.user.isSubscribed = false;
                         sessionStorage.setItem("Session", JSON.stringify(session));
                     })
                 }
             })
         })
     </script>
-    
-    <button id="subscribe">
-        Subscribe
-    </button>
-    <button id="unsubscribe">
-        End Subscription
-    </button>
 </body>
 </html>

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link rel="icon" type="image/x-icon" href="Recipes R Us.jpg">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300" />
     <script
         src="https://code.jquery.com/jquery-3.7.1.js"
@@ -30,7 +31,6 @@
         }
 
         .form input {
-            font-family: "Roboto", sans-serif;
             outline: 0;
             background: #f2f2f2;
             width: 100%;
@@ -42,10 +42,10 @@
         }
 
         .form button {
-            font-family: "Roboto", sans-serif;
             text-transform: uppercase;
             outline: 0;
-            background: #4CAF50;
+            background: #e3735e;
+            border-radius: 20px;
             width: 100%;
             border: 0;
             padding: 15px;
@@ -58,7 +58,7 @@
         .form button:hover,
         .form button:active,
         .form button:focus {
-            background: #43A047;
+            background: #e3735e;
         }
 
         .form .message {
@@ -68,13 +68,13 @@
         }
 
         .form .message a {
-            color: #4CAF50;
+            color: #e3735e;
             text-decoration: none;
         }
 
         body {
-            background: #76b852;
-            font-family: "Roboto", sans-serif;
+            background: #FEBB75;
+            font-family: "Montserrat";
         }
     </style>
     <script>
@@ -112,10 +112,10 @@
         <div class="form">
             <form class="login-form" method="get" onsubmit="validate(event)">
                 <div>
-                    <input type="text" id="email" placeholder="email" required/>
+                    <input type="text" id="email" placeholder="Email" required/>
                 </div>
                 <div>
-                    <input type="password" id="password" placeholder="password" required/>
+                    <input type="password" id="password" placeholder="Password" required/>
                 </div>
                 <div>
                     <button type="submit">Login</button>

@@ -7,7 +7,6 @@ const connURL = "mongodb+srv://group12:12345@recipesrus.b1bvbdp.mongodb.net/?ret
 async function addUser(firstName, lastName, email, password) {
     const client = new MongoClient(connURL);
     await client.connect();
-    console.log('Connected to the database');
     const database = client.db("UsersDB");
     const collection = database.collection("Users");
     let newUser = new User(firstName, lastName, email, password);

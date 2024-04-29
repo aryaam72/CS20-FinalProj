@@ -1,5 +1,5 @@
 const express = require('express');
-const { MongoClient } = require('mongodb');
+var path = require('path');
 const app = express();
 const PORT = process.env.PORT || 8080;
 const { addUser } = require('../scripts/add-user');
@@ -7,9 +7,10 @@ const { validateLogin } = require('../scripts/validate-login');
 const { createSession } = require('../scripts/createSession');
 const { getUser } = require('../scripts/get-user');
 const { changeSubscription } = require('../scripts/change-subscriptions');
-const bodyParser = require('body-parser')
-app.use(bodyParser.json())
-app.use(express.static(__dirname + 'public'));
+const bodyParser = require('body-parser');
+app.use(bodyParser.json());
+app.use(express.static(path.join(__dirname, 'public')));
+
 
 app.use(express.urlencoded({ extended: true }));
 
@@ -26,7 +27,7 @@ app.get('/signup.html', (req, res) => {
     res.sendFile(__dirname + '/signup.html');
 })
 
-app.get('/login', (req, res) => {
+app.get('/login.html', (req, res) => {
     res.sendFile(__dirname + '/login.html');
 
 })
@@ -54,7 +55,6 @@ app.get('/logout.html', (req, res) => {
 
 
 app.post('/add-user', async (req, res) => {
-    console.log(req.body);
     if (await addUser(req.body.firstName, req.body.lastName, req.body.email, req.body.password)) {
         const user = await getUser(req.body.email);
         const result = await createSession(req.body.email);
@@ -73,7 +73,6 @@ app.post('/change-subscription', async (req, res) => {
 })
 
 app.post('/validate-login', async (req, res) => {
-    console.log(req.body);
     if (await validateLogin(req.body)) {
         const user = await getUser(req.body.email);
         const result = await createSession(req.body.email);
