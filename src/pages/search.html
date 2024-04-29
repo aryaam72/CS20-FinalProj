@@ -158,6 +158,21 @@
                 cursor: pointer;
             }
 
+            .tags {
+                width: 100%;
+                margin-top: 10px;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .tag {
+                border-radius: 5px;
+                background-color: #ffffff;
+                box-shadow: 0px 8px 16px 0px #00000033;
+                padding: 10px;
+            }
+
             .results {
                 display: flex;
                 justify-content: center;
@@ -290,6 +305,7 @@
                         </div>
                     </div>
                     <input class="search-btn" type="submit" value="search"/>
+                    <div class="tags"></div>
                 </div>
             </form>
             <h2 class="num-results"></h2>
@@ -300,6 +316,15 @@
             &copy; 2024 Recipes R Us by domainhub.domains
         </div>
         <script>
+            $(document).ready(function () {
+                $("input[type='checkbox']").click(function () {
+                    $(".tags").empty();
+                    $("input[type='checkbox']:checked").each(function () {
+                        $(".tags").append("<div class='tag'>" + $(this).val() + "</div>");
+                    });
+                });
+            });
+
             function process() {
                 $(".results").empty();
     
