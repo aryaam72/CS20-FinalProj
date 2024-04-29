@@ -3,14 +3,10 @@
     <head>
         <title>Recipe Search</title>
         <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
         <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
         <style>
-            * {
-                font-family: "Montserrat";
-                color: #36454f;
-            }
-
             body, .content {
                 margin: 0 auto;
             }
@@ -19,30 +15,6 @@
                 min-height: 100vh;
                 display: flex;
                 flex-direction: column;
-            }
-
-            h1 {
-                font-family: "Kaushan Script";
-                font-size: 72px;
-                color: #e3735e;
-                display: flex;
-            }
-
-            h1::before, h1::after {
-                content: "";
-                background-color: #e3735e;
-                height: 1px;
-                margin-top: 64px;
-            }
-
-            h1::before {
-                width: 20%;
-                margin-right: 10px;
-            }
-
-            h1::after {
-                margin-left: 20px;
-                flex-grow: 1;
             }
 
             p {
@@ -238,24 +210,6 @@
                     flex-grow: 1;
                 }
             }
-
-            @media screen and (max-width: 768px) {
-                h1 {
-                    font-size: 36px;
-                }
-
-                h1::before, h1::after {
-                    margin-top: 32px;
-                }
-
-                h1::before {
-                    margin-right: 5px;
-                }
-
-                h1::after {
-                    margin-left: 10px;
-                }
-            }
         </style>
         <script>
             if (sessionStorage.getItem() == false) {
@@ -280,6 +234,16 @@
                 </div>
             </div>
         </div>
+        <script>
+            function goHam() {
+                var x = document.getElementById("navBar");
+                if (x.className === "navBar") {
+                    x.className += " responsive";
+                } else {
+                    x.className = "navBar";
+                }
+            }
+        </script>
         <h1>Recipe Search</h1>
         <div class="content">
             <form method="get" onsubmit="return process()">
