@@ -9,8 +9,9 @@ const { getUser } = require('../scripts/get-user');
 const { changeSubscription } = require('../scripts/change-subscriptions');
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, 'public')));
 
+/* For images and styles as static files */
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(express.urlencoded({ extended: true }));
 
@@ -22,16 +23,13 @@ app.get('/homepage.html', (req, res) => {
     res.sendFile(__dirname + '/homepage.html');
 });
 
-//used to be /pagename made /pagename.html in the get
 app.get('/signup.html', (req, res) => {
     res.sendFile(__dirname + '/signup.html');
 })
 
 app.get('/login.html', (req, res) => {
     res.sendFile(__dirname + '/login.html');
-
 })
-
 
 app.get('/search.html', (req, res) => {
     res.sendFile(__dirname + '/search.html')
@@ -83,7 +81,6 @@ app.post('/validate-login', async (req, res) => {
         res.send("Invalid Login");
     }
 })
-
 
 // starts the server
 app.listen(PORT, () => {

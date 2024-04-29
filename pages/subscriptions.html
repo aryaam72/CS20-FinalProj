@@ -14,44 +14,152 @@
     <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/style.css"/>
     <style>
-        #subscribe {
+        #subscribe, #unsubscribe {
+            display: none;
             text-transform: uppercase;
             outline: 0;
-            background: #e3735e;
-            border-radius: 20px;
-            width:200px;
-            border: 0;
+            background-color: #e3735e;
+            border-radius: 5px;
             padding: 15px;
             color: #FFFFFF;
-            font-size: 14px;
-            transition: all 0.3 ease;
+            font-size: 25px;
+            font-weight: 800;
+            border: 0;  
             cursor: pointer;
         }
+        
+        #subscribe:hover, #unsubscribe:hover {
+            background-color: #cb6a58;
+        }
 
-        #unsubscribe {
-            text-transform: uppercase;
-            margin-left: 4%;
-            outline: 0;
-            background: #e3735e;
-            border-radius: 20px;
-            width: 200px;
-            border: 0;
-            padding: 15px;
-            color: #FFFFFF;
-            font-size: 14px;
-            transition: all 0.3 ease;
+        #subscribe:active, #unsubscribe:active {
+            background-color: #814e45;
+        }
+        
+        .planTitle {
+            color: #ffffff;
+            font-size: 40px;
+            font-weight: 800;
+            margin-top: -10px;
+        }
+
+        .planSub {
+            color: #ffffff;
+            font-size: 20px;
+            font-weight: 600;
+            margin-top: 5px;
+        }
+
+        .packages-section {
+            margin-top: 50px;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .planContainer {
+            max-width: 800px;
+            width: 100%;
+            justify-content: space-around;
+            display: flex;
         }
 
         .button {
-            max-width: 500px;
-            width: 100%;
-            margin: auto;
+            margin-top: -30px;
+
+        }
+
+        .plan {
+            width: 200px;
+            height: 250px;
+            text-align: center;
+            background-color: #fff;
+            border-radius: 6px;
+            font-weight: 700;
+            box-shadow: .2rem .7rem .7rem -.3rem #0003;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+
+        .plan div {
+            color: #e3735e;
         }
 
         html, body {
             padding: 0;
             height: 100%;
             margin: 0;
+        }
+
+        .planInfo {
+            margin: 50px 0px;
+            max-width: 650px;
+            width: 100%;
+        }
+
+        .planInfoTitle {
+            padding: 10px 0px;
+            font-size: 30px;
+            font-weight: bold;
+            color: #e3735e;
+        }
+        
+        .planInfoText {
+            padding-bottom: 50px;
+            font-size: 20px;
+        }
+
+        @media screen and (max-width: 768px) {
+            .planTitle {
+                font-size: 30px;
+                margin-top: -5px;
+            }
+            .planSub {
+                font-size: 20px;
+                margin-top: 7px;
+            }
+            #subscribe, #unsubscribe {
+                color: #FFFFFF;
+                font-size: 20px;
+                font-weight: 800;
+                border: 0;  
+                cursor: pointer;
+            }
+
+            .planInfo {
+                margin: 50px 0px;
+                max-width: 350px;
+                width: 100%;
+            }
+
+            .planInfoTitle {
+                padding: 10px 0px;
+                font-size: 20px;
+                font-weight: bold;
+                color: #e3735e;
+            }
+            
+            .planInfoText {
+                padding-bottom: 20px;
+                font-size: 15px;
+            }
+
+        }
+
+        @media screen and (max-width: 600px) {
+            .packages-section {
+                margin-top: 50px;
+                min-height: 850px;
+                display: flex;
+                justify-content: space-around;
+            }
+            .planContainer {
+                max-width: 200px;
+                max-height: 800px;
+                justify-content: space-between;
+                display: flex;
+                flex-direction: column;
+            }
         }
     </style>
 </head>
@@ -77,21 +185,140 @@
         <h1>Subscriptions</h1>
     </div>
 
-    <div class="packages-section" id="packages-section">
-        <div>
-
+    <div style="background-color: #FEBB75; width: 100%; padding: 100px 0px;">
+        <div style="display: flex; justify-content: space-around;">
+            <div class="planTitle">One Plan. One Price.</div>
+        </div>
+    
+        <div style="display: flex; justify-content: space-around;">
+            <div class="planSub">Flat Monthly Rate of $7.99</div>
+        </div>
+    
+        <div class="packages-section">
+            <div class="planContainer">
+                <div class="plan"> 
+                    <div style="font-size: 30px;">
+                        1 Month
+                    </div>
+                    <div>
+                        <div style="font-size: 50px; margin-top: -50px;">
+                            $7.99
+                        </div>
+                        <div style="font-size: 15px;">
+                            Per Month
+                        </div>
+                    </div>
+                </div>
+                <div class="plan">  
+                    <div style="font-size: 30px;">
+                        12 Months
+                    </div>
+                    <div>
+                        <div>
+                            <div style="font-size: 50px; margin-top: -50px;">
+                                $7.99
+                            </div>
+                            <div style="font-size: 15px;">
+                                Per Month
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="plan">
+                    <div style="font-size: 30px;">
+                        &#8734; Months
+                    </div>
+                    <div>
+                        <div>
+                            <div style="font-size: 50px; margin-top: -50px;">
+                                $7.99
+                            </div>
+                            <div style="font-size: 15px;">
+                                Per Month
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="button">
-        <button id="subscribe">
-            Subscribe
-        </button>
-        <button id="unsubscribe">
-            End Subscription
-        </button>
+    
+    <div style="display: flex; justify-content: space-around;">
+        <div class="button">
+            <button id="subscribe">
+                Hungry? Subscribe Now
+            </button>
+            <button id="unsubscribe">
+                Full? Cancel Subscription
+            </button>
+        </div>
     </div>
 
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-around;">
+        <div class="planInfo">
+            <div>
+                <div class="planInfoTitle">
+                    Comprehensive Database
+                </div>
+                <div class="planInfoText">
+                    Gain unrestricted access to our vast collection of recipes
+                    spanning cuisines from around the world. From classic comfort
+                    foods to exotic culinary delights, discover endless inspiration
+                    for your kitchen adventures.
+                </div>
+            </div>
+            <div>
+                <div class="planInfoTitle">
+                    Customizable Collections
+                </div>
+                <div class="planInfoText">
+                    Create personalized recipe collections based on your
+                    dietary preferences, cooking skill level, and favorite
+                    ingredients. Easily organize and access your saved recipes
+                    anytime, anywhere, from any device.
+                </div>
+            </div>
+            <div>
+                <div class="planInfoTitle">
+                    Interactive Cooking
+                </div>
+                <div class="planInfoText">
+                    Enhance your culinary journey with interactive features
+                    such as step-by-step recipe guides, cooking tips from
+                    renowned chefs, and ingredient substitution suggestions.
+                    Elevate your cooking skills and impress your family and
+                    friends with delicious homemade meals every time.
+                </div>
+            </div>
+        </div>
+    </div>
+   
+    <div class="footer">
+        <p>© 2024 Recipes R Us by domainhub.domains</p>
+    </div>
+   
+
     <script>
+        $(document).ready(() => {
+            const session = sessionStorage.getItem("Session");
+            const parsedSession = JSON.parse(session);
+            if (!parsedSession.user.isSubscribed) {
+                $('#subscribe').toggle();
+            } else {
+                $('#unsubscribe').toggle();
+            }
+        })
+
+        function switchButton() {
+            if ($('#subscribe').is(":visible")) {
+                $('#unsubscribe').toggle();
+                $('#subscribe').toggle();
+            } else {
+                $('#subscribe').toggle();
+                $('#unsubscribe').toggle();
+            }
+        }
+
         setInterval(paywall, 100);
 
         function paywall() {
@@ -100,7 +327,6 @@
                 window.location.href = '/login.html';
             }
         }
-
         function goHam() {
             var x = document.getElementById("navBar");
             if (x.className === "navBar") {
@@ -129,6 +355,7 @@
                     .then (() => {
                         session.user.isSubscribed = true;
                         sessionStorage.setItem("Session", JSON.stringify(session));
+                        switchButton();
                     })
                 }
             })
@@ -150,6 +377,7 @@
                     .then (() => {
                         session.user.isSubscribed = false;
                         sessionStorage.setItem("Session", JSON.stringify(session));
+                        switchButton();
                     })
                 }
             })
