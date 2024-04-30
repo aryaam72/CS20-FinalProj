@@ -15,31 +15,26 @@
         }
 
         .callAction {
-            width:50%;
-            font-size:30px;
-            text-align:center;
-            /* background-color: blanchedalmond; */
-            background-color:#FEBB75;
-            border:2px solid;
-            border-color:white;
-            display:block;
-            border-radius: 20px;
-            padding:20px;
-            margin:auto;
+            border-radius: 50px;
+            background-color: #febb75;
+            box-shadow: 0px 8px 16px 0px #00000033;
+            color: #ffffff;
+            font-size: 32px;
+            font-weight: bold;
+            text-align: center;
+            width: 40%;
+            margin: auto;
+            margin-bottom: 100px;
+            padding: 20px;
+            display: block;
         }
 
         .callAction:hover {
-            background-color: #e7e7e7;
-            border:2px solid;
-            border-color:#FEBB75;
-
-            /* background-color: white; */
+            background-color: #f69b66;
         }
  
-        /* trending recipes */
         .trend-recipes {
-            margin-bottom: 5%;
-            margin-top: 5%;           
+
         }
 
         .trend-recipes .row {
@@ -47,7 +42,7 @@
             flex-wrap: wrap;
             justify-content: space-between;
             line-height: 1.8;
-            margin: 5%;   
+            margin: 50px 5%;  
         }
 
         h1 {
@@ -78,8 +73,10 @@
         }
 
         h2 {
-            margin:auto;
-            text-align:center;
+            color: #e3735e;
+            font-size: 32px;
+            margin: auto;
+            text-align: center;
         }
 
         a {
@@ -92,7 +89,15 @@
             text-align:center;
             justify-content: center;
             margin: auto;
+            margin-bottom: 50px;
             padding: 10px;
+            gap: 30px;
+        }
+
+        img {
+            border-radius: 5px;
+            width: 65%;
+            margin-top: 20px;
         }
 
         .img {
@@ -102,13 +107,12 @@
         }
 
         .text {
-            width:60%;
             font-size: 20px;
-            justify-content: space-between;
             text-align: justify;
             text-justify: auto;
+            width: 60%;
+            justify-content: space-between;
         }
-
 
         @media screen and (max-width: 900px) {
             .callAction {
@@ -226,21 +230,15 @@
         <h2>Trending Recipes</h2>
         <div class="row">
             <!-- get three recipies from the database --> 
-            <div class="r0" id="r0">&nbsp;</div>
-            <div class="r1" id="r1">&nbsp;</div>
-            <div class="r2" id="r2">&nbsp;</div>            
+            <div class="r0" id="r0"></div>
+            <div class="r1" id="r1"></div>
+            <div class="r2" id="r2"></div>            
         </div>
 
 
     </div>
 
-    <a href="database.html" class="callAction">Click Here To Find Your Next Favorite Meal</a>
-
-    <div class="subscribe">
-        <h2>Subscription Model</h2>
-        <div></div>
-        <div></div>
-    </div>
+    <a href="search.html" class="callAction">Find Your Next Favorite Meal</a>
     
     <div class='footer'>
         <p>© 2024 Recipes R Us by domainhub.domains</p>

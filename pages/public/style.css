@@ -50,10 +50,11 @@ h1::after {
 }
 
 .footer {
-    height:100px;
-    background-color:#FEBB75;
-    text-align:center;
-    margin-top:50px;
+    border-top: 5px solid #ffdead;
+    background-color: #febb75;
+    text-align: center;
+    height: 100px;
+    margin-top: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -69,8 +70,9 @@ html, body {
 }
 
 .header {
-    background-color: #FEBB75;
-    max-width:100%;
+    border-bottom: 5px solid #ffdead;
+    background-color: #febb75;
+    max-width: 100%;
 }
 
 .navBar {
@@ -97,10 +99,10 @@ html, body {
     text-decoration: none;
     display: block;
     padding: 10px 12px;
-    box-sizing:border-box;
-    text-align:center;
-    font-size:23px;
-    color:#653030;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 18px;
+    color: #653030;
 }
 
 .nav-left a.active {
@@ -112,7 +114,7 @@ a.icon {
 }
 
 .nav-left a:hover, .nav-right a:hover  {
-    background-color: #fe9c34;
+    background-color: #f69b66;
     color:#653030;
 }
 
@@ -128,7 +130,7 @@ a.icon {
     }
 }
 
-@media screen and (max-width: 1080px) {
+@media screen and (max-width: 900px) {
     .navBar a:not(:first-child) {display: none;}
     .navBar.responsive {position: relative;}
     .navBar.responsive a.icon {
